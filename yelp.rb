@@ -71,7 +71,7 @@ res3 = {
 #1 access user1 name through user1
 user1[:name]
 
-# BONUS: A function to find a user based on their Id.
+# A function to find a user based on their Id.
 
 def user_name(id)
   @all_users.select do |user| 
@@ -83,7 +83,9 @@ end
 
 
 #2 access user1 name through res2 (user1 data is in reviews)
-res2[:reviews][2][:user_id]  
+user1_id = res2[:reviews][0][:user_id]  
+
+user_name(user1_id)
 
 # BONUS: A function to find which rating a certain user gave restaurant 2. 
 
@@ -94,6 +96,7 @@ def user_rating_res_2(id)
     end
   end
 end
+
 
 user_rating_res_2(1) # Gets user_1 rating for res 2.
 
@@ -153,7 +156,7 @@ p restaurants  # - READ
 
 
 #11 loop through your restaurants and return those with likes > 500 (select/filter)
-likes_over_500 = all_restaurants.select do |res| res[:likes] > 500 
+likes_over_500 = @all_restaurants.select do |res| res[:likes] > 500 
   end
 likes_over_500.map do |name| puts name[:name] 
   end
